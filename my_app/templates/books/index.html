@@ -1,0 +1,27 @@
+{% extends 'base.html' %} 
+{% load static %} 
+{% block head %}
+<link rel="stylesheet" href="{% static 'css/books/book-index.css' %}"/>
+{% endblock %} 
+{% block content %}
+
+<section class="page-header">
+  <h1>Book List</h1>
+</section>
+
+<section class="card-container">
+  {% for book in books %}
+    <div class="card">
+      <div class="card-content">
+        <div class="card-img-container">
+        </div>
+        <h2 class="card-title">{{ book.title }}</h2>
+        <p> {{book.title}} by {{ book.author }} published {{ book.published_date }}</p>
+        <p>Genre: {{ book.genre }}.</p>
+        <p><small> Description {{ book.description }}</small></p>
+      </div>
+    </div>
+  {% endfor %}
+</section>
+
+{% endblock %}
