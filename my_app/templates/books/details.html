@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block head %}
+<link rel="stylesheet" href="{% static 'css/books/book-detail.css' %}" />
+{% endblock %}
+{% block content %}
+<section class="book-container">
+  <div class="book-details">
+    <h1>{{ book.title }}</h1>
+    <h2> Written by {{ book.author }} on {{ book.publish_date }}</h2>
+    <h2>Genre: {{ book.genre }} </h2>
+    {% if book.read_status == 'F' %}
+    <p>Reading Status: Finished</p>
+    {% elif book.read_status == 'P' %}
+    <p>Reading Status: Planned to Read</p>
+    {% else %}
+    <p>Reading Status: Reading</p>
+    {% endif %}
+    <p>{{ book.description }}</p>
+    <div class="book-actions">
+      <a href="{% url 'book-update' book.id %}" class="btn warn">Edit</a>
+      <a href="{% url 'book-delete' book.id %}" class="btn danger">Delete</a>
+    </div>
+  </div>
+</section>
+{% endblock %}

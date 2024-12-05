@@ -7,7 +7,8 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="{% static 'css/base.css' %}" />
-  <link rel="shortcut icon" type="image/png" href="{% static 'images/786eedab-64c0-4ce0-b16e-2b94923d82dc.png.PNG' %}" />
+  <link rel="shortcut icon" type="image/png"
+    href="{% static 'images/786eedab-64c0-4ce0-b16e-2b94923d82dc.png.PNG' %}" />
 
   <title>LitList</title>
   {% block head %}
@@ -23,13 +24,9 @@
     </div>
     <nav>
       <ul>
-        <li><a href="/about">About</a></li>
-        <li><a href="/books">All Books</a></li>
-        <li><a href="/details">Details</a></li>
-        <li><a href="/home">Home</a></li>
-        <li><a href="/create">Create</a></li>
-        <li><a href="/delete">Delete</a></li>
-        <li><a href="/update">Update</a></li>
+        <li><a href="{% url 'book-index' %}">All Books</a></li>
+        <li><a href="{% url 'about' %}">About</a></li>
+        <li><a href="{% url 'book-create' %}">Add a Book</a></li>
       </ul>
     </nav>
   </header>
